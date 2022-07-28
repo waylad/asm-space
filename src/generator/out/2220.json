@@ -1,0 +1,12 @@
+{
+  "name": "ASM Space Ship 2220",
+  "description": "A ASM Space Upgradable Spaceship",
+  "external_url": "https://asmspace.xyz/assets/ships/2220.svg",
+  "image": "ipfs://QmYJkyeQ9NGEheqWzF5hCGsMbnRdDC7KSdbqNHyqNumAxb",
+  "attributes": [
+    { "cabin": 2, "rarity": 0.25 },
+    { "engine": 2, "rarity": 0.25 },
+    { "wing": 2, "rarity": 0.25 },
+    { "weapon": 0, "rarity": 0.25 }
+  ]
+}

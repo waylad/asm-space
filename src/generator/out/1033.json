@@ -1,0 +1,12 @@
+{
+  "name": "ASM Space Ship 1033",
+  "description": "A ASM Space Upgradable Spaceship",
+  "external_url": "https://asmspace.xyz/assets/ships/1033.svg",
+  "image": "ipfs://Qmf57o9Jx993zR9jdjCKqesn1s24RSMKcxMiDP62YkaJqU",
+  "attributes": [
+    { "cabin": 1, "rarity": 0.25 },
+    { "engine": 0, "rarity": 0.25 },
+    { "wing": 3, "rarity": 0.25 },
+    { "weapon": 3, "rarity": 0.25 }
+  ]
+}
