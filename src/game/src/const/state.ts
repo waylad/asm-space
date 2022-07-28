@@ -8,6 +8,8 @@ export type Level = {
   y: number
   background: string
   enemyCode: string
+  brain: string
+  speed: number
   rateOfFire: number
   boss?: boolean
 }

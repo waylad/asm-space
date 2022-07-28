@@ -86,6 +86,7 @@ export class SelectShip extends Phaser.Scene {
       this.showLoading = true
       await mintShip()
       await getShips()
+      this.scene.restart()
       this.showLoading = false
     })
 

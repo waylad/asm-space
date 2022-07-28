@@ -4,49 +4,63 @@
       "x": 160,
       "y": 132,
       "background": "bg5",
-      "enemyCode": "0000",
+      "enemyCode": "0001",
+      "brain": "brain8634",
+      "speed": 100,
       "rateOfFire": 1
     },
     {
       "x": 220,
       "y": 292,
       "background": "bg8",
-      "enemyCode": "1000",
+      "enemyCode": "1001",
+      "brain": "brain8567",
+      "speed": 100,
       "rateOfFire": 1
     },
     {
       "x": 322,
       "y": 595,
       "background": "bg3",
-      "enemyCode": "0001",
+      "enemyCode": "0002",
+      "brain": "brain8326",
+      "speed": 100,
       "rateOfFire": 1
     },
     {
       "x": 458,
       "y": 87,
       "background": "bg2",
-      "enemyCode": "0120",
+      "enemyCode": "0122",
+      "brain": "brain7533",
+      "speed": 150,
       "rateOfFire": 2
     },
     {
       "x": 448,
       "y": 496,
       "background": "bg5",
-      "enemyCode": "2100",
+      "enemyCode": "2101",
+      "brain": "brain7524",
+      "speed": 150,
       "rateOfFire": 2
     },
     {
       "x": 731,
       "y": 152,
       "background": "bg6",
-      "enemyCode": "1020",
+      "enemyCode": "1022",
+      "brain": "brain7520",
+      "speed": 150,
       "rateOfFire": 3
     },
     {
       "x": 654,
       "y": 455,
       "background": "bg7",
-      "enemyCode": "2201",
+      "enemyCode": "2203",
+      "brain": "brain6088",
+      "speed": 150,
       "rateOfFire": 3
     },
     {
@@ -54,6 +68,8 @@
       "y": 615,
       "background": "bg8",
       "enemyCode": "0212",
+      "brain": "brain5904",
+      "speed": 150,
       "rateOfFire": 3
     },
     {
@@ -61,6 +77,8 @@
       "y": 96,
       "background": "bg9",
       "enemyCode": "1122",
+      "brain": "brain5503",
+      "speed": 200,
       "rateOfFire": 4
     },
     {
@@ -68,6 +86,8 @@
       "y": 757,
       "background": "bg10",
       "enemyCode": "1231",
+      "brain": "brain5502",
+      "speed": 200,
       "rateOfFire": 4
     },
     {
@@ -75,6 +95,8 @@
       "y": 425,
       "background": "bg8",
       "enemyCode": "2321",
+      "brain": "brain5494",
+      "speed": 200,
       "rateOfFire": 4
     },
     {
@@ -82,6 +104,8 @@
       "y": 67,
       "background": "bg2",
       "enemyCode": "3122",
+      "brain": "brain5491",
+      "speed": 200,
       "rateOfFire": 5
     },
     {
@@ -89,13 +113,17 @@
       "y": 352,
       "background": "bg3",
       "enemyCode": "2233",
+      "brain": "brain5383",
+      "speed": 300,
       "rateOfFire": 5
     },
     {
       "x": 1275,
       "y": 635,
       "background": "bg3",
-      "enemyCode": "3332",
+      "enemyCode": "3333",
+      "brain": "brain2130",
+      "speed": 300,
       "rateOfFire": 5
     },
     {
@@ -103,6 +131,8 @@
       "y": 162,
       "background": "bg5",
       "enemyCode": "3323",
+      "brain": "brain1824",
+      "speed": 300,
       "rateOfFire": 6
     },
     {
@@ -110,6 +140,8 @@
       "y": 493,
       "background": "bg6",
       "enemyCode": "2333",
+      "brain": "brain1621",
+      "speed": 300,
       "rateOfFire": 8
     },
     {
@@ -117,6 +149,8 @@
       "y": 570,
       "background": "bg7",
       "enemyCode": "3333",
+      "brain": "brain348",
+      "speed": 500,
       "rateOfFire": 10,
       "boss": true
     }

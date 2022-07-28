@@ -23,7 +23,7 @@ export class Game extends Phaser.Scene {
   preload(): void {}
 
   create(): void {
-    const currentLevel: Level = levels[state.currentLevelIndex]
+    const currentLevel: Level = levels[state.currentLevelIndex] as Level
 
     this.player = new Ship({
       scene: this,
@@ -37,6 +37,8 @@ export class Game extends Phaser.Scene {
       x: this.getRandomSpawnPostion(this.sys.canvas.width),
       y: this.getRandomSpawnPostion(this.sys.canvas.height),
       shipCode: currentLevel.enemyCode,
+      brain: currentLevel.brain,
+      speed: currentLevel.speed,
       rateOfFire: currentLevel.rateOfFire,
       player: this.player
     })

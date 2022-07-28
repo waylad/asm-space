@@ -16,22 +16,29 @@ export const connectWallet = async () => {
 
     await provider.send('eth_requestAccounts', [])
 
-    window.ethereum.request({
-      method: 'wallet_addEthereumChain',
-      params: [
-        {
-          chainId: '0x4',
-          // rpcUrls: ['https://rpc.apothem.network'],
-          // chainName: 'XDC Testnet',
-          // nativeCurrency: {
-          //   name: 'XDC',
-          //   symbol: 'XDC',
-          //   decimals: 18,
-          // },
-          blockExplorerUrls: null,
-        },
-      ],
-    })
+    window.ethereum
+      .request({
+        method: 'wallet_switchEthereumChain',
+        params: [{ chainId: `0x${Number(4).toString(16)}` }],
+      })
+      .catch(() => {})
+
+    // window.ethereum.request({
+    //   method: 'wallet_addEthereumChain',
+    //   params: [
+    //     {
+    //       chainId: '0x4',
+    //       rpcUrls: ['https://rpc.apothem.network'],
+    //       chainName: 'XDC Testnet',
+    //       nativeCurrency: {
+    //         name: 'XDC',
+    //         symbol: 'XDC',
+    //         decimals: 18,
+    //       },
+    //       blockExplorerUrls: null,
+    //     },
+    //   ],
+    // })
 
     signer = provider.getSigner()
     address = await signer.getAddress()
@@ -44,6 +51,7 @@ export const connectWallet = async () => {
 
     console.log(address)
   } catch (e: any) {
+    console.log(e)
     window.location.reload()
   }
 }
@@ -80,14 +88,15 @@ export const getShips = async () => {
     ]
     console.log(state.ownedShips)
   } catch (e: any) {
-    window.location.reload()
+    console.log(e)
+    // window.location.reload()
   }
 }
 
 export const mintShip = async () => {
   const tx = await spaceShipsContractWithSigner.mintShip(address)
-  const confirmation = await provider.getTransactionReceipt(tx.hash)
-  console.log(confirmation)
+  const receipt = await tx.wait();
+  console.log(receipt)
 }
 
 export const upgradeShip = async (ship: ShipToken) => {

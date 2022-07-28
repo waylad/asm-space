@@ -13,6 +13,8 @@ export class Enemy extends Phaser.GameObjects.Container {
   private shootCount: number
   private particles: Phaser.GameObjects.Particles.ParticleEmitterManager
   private shipCode: string
+  private brain: string
+  private speed: number
   private rateOfFire: number
   private player: Phaser.GameObjects.Container
 
@@ -28,6 +30,8 @@ export class Enemy extends Phaser.GameObjects.Container {
     super(aParams.scene, aParams.x, aParams.y)
 
     this.shipCode = aParams.shipCode
+    this.brain = aParams.brain
+    this.speed = aParams.speed
     this.rateOfFire = aParams.rateOfFire
     this.player = aParams.player
 
@@ -46,7 +50,8 @@ export class Enemy extends Phaser.GameObjects.Container {
     this.body.setSize(state.shipSize * 2, state.shipSize * 2)
     this.body.setOffset(-state.shipSize, -state.shipSize)
 
-    const partCabin = new Phaser.GameObjects.Image(this.scene, 0, 0, `partCabin${aParams.shipCode[0]}`)
+    // const partCabin = new Phaser.GameObjects.Image(this.scene, 0, 0, `partCabin${aParams.shipCode[0]}`)
+    const partCabin = new Phaser.GameObjects.Image(this.scene, 0, 0, this.brain)
     const partEngine = new Phaser.GameObjects.Image(this.scene, 0, 0, `partEngine${aParams.shipCode[1]}`)
     const partWing = new Phaser.GameObjects.Image(this.scene, 0, 0, `partWing${aParams.shipCode[2]}`)
     const partWeapon = new Phaser.GameObjects.Image(this.scene, 0, 0, `partWeapon${aParams.shipCode[3]}`)
@@ -55,7 +60,7 @@ export class Enemy extends Phaser.GameObjects.Container {
     // boost particles
     this.particles = this.scene.add.particles('particleRed')
     this.emitter = this.particles.createEmitter({
-      speed: 100,
+      speed: 10,
       lifespan: {
         onEmit: () => Phaser.Math.Percent(100, 0, 5) * 2000,
       },
@@ -105,15 +110,18 @@ export class Enemy extends Phaser.GameObjects.Container {
 
       this.checkIfOffScreen()
       this.updateBullets()
-      this.emitter.startFollow(this, - state.shipSize * Math.sin(this.rotation + Math.PI / 2), state.shipSize * Math.cos(this.rotation + Math.PI / 2))
+      this.emitter.startFollow(
+        this,
+        -state.shipSize * Math.sin(this.rotation + Math.PI / 2),
+        state.shipSize * Math.cos(this.rotation + Math.PI / 2),
+      )
 
       // --- New targeting ---
       const targetAngle = Phaser.Math.Angle.Between(this.x, this.y, this.player.x, this.player.y)
       // clamp to -PI to PI for smarter turning
       let diff = Phaser.Math.Angle.Wrap(targetAngle - this.rotation)
 
-      const turnDegreesPerFrame = 1.25
-      const speed = 100
+      const turnDegreesPerFrame = this.speed / 100
       // set to targetAngle if less than turnDegreesPerFrame
       if (Math.abs(diff) < Phaser.Math.DegToRad(turnDegreesPerFrame)) {
         this.rotation = targetAngle
@@ -131,8 +139,8 @@ export class Enemy extends Phaser.GameObjects.Container {
       }
 
       // move enemy in direction facing
-      const vx = Math.cos(this.rotation) * speed
-      const vy = Math.sin(this.rotation) * speed
+      const vx = Math.cos(this.rotation) * this.speed
+      const vy = Math.sin(this.rotation) * this.speed
 
       this.body.velocity.x = vx
       this.body.velocity.y = vy
